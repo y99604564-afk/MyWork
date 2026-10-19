@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heba Abdo | Portfolio</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --black: #090909;
+            --dark: #141414;
+            --card: #1d1a1b;
+            --burgundy: #800020;
+            --wine: #a00035;
+            --light: #ffffff;
+            --gray: #bdb7ba;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--light);
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: rgba(9, 9, 9, 0.96);
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(128, 0, 32, 0.5);
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .navbar-brand span {
+            color: #c2184b;
+        }
+
+        .nav-link {
+            color: white !important;
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #e63968 !important;
+            transform: translateY(-3px);
+        }
+
+        /* BUTTONS */
+
+        .btn-wine {
+            background: var(--burgundy);
+            color: white;
+            border: 1px solid var(--burgundy);
+            transition: 0.3s;
+        }
+
+        .btn-wine:hover {
+            background: #a00035;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(160, 0, 53, 0.35);
+        }
+
+        .btn-outline-wine {
+            color: white;
+            border: 1px solid #a00035;
+            transition: 0.3s;
+        }
+
+        .btn-outline-wine:hover {
+            background: var(--burgundy);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 70px;
+            background:
+                radial-gradient(circle at 85% 40%,
+                rgba(128, 0, 32, 0.22), transparent 35%),
+                var(--black);
+        }
+
+        .hero-content {
+            animation: slideLeft 1s ease both;
+        }
+
+        .welcome {
+            color: #e63968;
+            font-size: 17px;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 5vw, 58px);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #b0003a;
+        }
+
+        .hero h2 {
+            font-size: 27px;
+            color: #d6cbd0;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--gray);
+            line-height: 1.9;
+            max-width: 600px;
+            margin-bottom: 28px;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 5px solid var(--burgundy);
+            box-shadow: 0 0 35px rgba(128, 0, 32, 0.4);
+            animation: float 4s ease-in-out infinite;
+            transition: 0.4s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 45px rgba(180, 0, 55, 0.6);
+        }
+
+        .profile-badge {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background: #21171b;
+            color: #f1c5d2;
+            border: 1px solid var(--burgundy);
+            border-radius: 30px;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: #b0003a;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+
+        #about {
+            background: #111111;
+        }
+
+        .custom-card {
+            height: 100%;
+            padding: 28px;
+            background: var(--card);
+            border: 1px solid #302126;
+            border-radius: 15px;
+            transition: 0.35s;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-8px);
+            border-color: #a00035;
+            box-shadow: 0 12px 30px rgba(128, 0, 32, 0.15);
+        }
+
+        .card-icon {
+            font-size: 35px;
+            color: #c2184b;
+            margin-bottom: 18px;
+        }
+
+        .custom-card h4 {
+            margin-bottom: 18px;
+            font-weight: bold;
+        }
+
+        .custom-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .info-row {
+            padding: 11px 0;
+            border-bottom: 1px solid #38282e;
+            overflow-wrap: anywhere;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row strong {
+            color: #e66a8e;
+        }
+
+        /* SKILLS */
+
+        .skill-card {
+            background: var(--card);
+            padding: 28px 15px;
+            border-radius: 15px;
+            border: 1px solid #302126;
+            transition: 0.35s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            background: #29161d;
+            border-color: #b0003a;
+        }
+
+        .skill-card i {
+            font-size: 43px;
+            color: #c2184b;
+        }
+
+        .skill-card h5 {
+            margin-top: 18px;
+            font-weight: bold;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+
+        /* PROJECTS */
+
+        #projects {
+            background: #111111;
+        }
+
+        .project-card {
+            height: 100%;
+            background: var(--card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #302126;
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #a00035;
+            box-shadow: 0 15px 35px rgba(128, 0, 32, 0.2);
+        }
+
+        .project-top {
+            height: 125px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #240a12, #800020);
+        }
+
+        .project-top i {
+            font-size: 50px;
+            color: white;
+            transition: 0.4s;
+        }
+
+        .project-card:hover .project-top i {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        .project-body {
+            padding: 25px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #451323;
+            color: #ffb4c9;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .project-body h5 {
+            font-weight: bold;
+        }
+
+        .project-body p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            background: var(--card);
+            border: 1px solid #302126;
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .form-control {
+            background: #111111;
+            border: 1px solid #49303a;
+            color: white;
+            padding: 12px;
+        }
+
+        .form-control:focus {
+            background: #171114;
+            color: white;
+            border-color: #b0003a;
+            box-shadow: 0 0 0 0.2rem rgba(176, 0, 58, 0.2);
+        }
+
+        .form-control::placeholder {
+            color: #999094;
+        }
+
+        .form-label {
+            color: #f0dce3;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #080808;
+            border-top: 1px solid #451323;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer h5 {
+            font-weight: bold;
+        }
+
+        footer h5 span {
+            color: #c2184b;
+        }
+
+        footer p {
+            color: var(--gray);
+            margin: 10px 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 42px;
+            height: 42px;
+            margin: 5px;
+            color: white;
+            border: 1px solid var(--burgundy);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--burgundy);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                padding-top: 100px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .profile-img {
+                width: 210px;
+                height: 210px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="#home">
+                Heba <span>Abdo.</span>
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-7 hero-content">
+
+                    <div class="welcome">
+                        WELCOME TO MY PORTFOLIO
+                    </div>
+
+                    <h1>
+                        Hi, I'm <span>Heba Abdo</span>
+                    </h1>
+
+                    <h2>
+                        Web Developer
+                    </h2>
+
+                    <p>
+                        I create modern and responsive websites
+                        with a great user experience using HTML,
+                        CSS, JavaScript, and Bootstrap.
+                    </p>
+
+                    <a href="#projects"
+                        class="btn btn-wine btn-lg me-2 mb-2">
+
+                        <i class="bi bi-briefcase me-2"></i>
+                        My Projects
+
+                    </a>
+
+                    <a href="#contact"
+                        class="btn btn-outline-wine btn-lg mb-2">
+
+                        <i class="bi bi-envelope me-2"></i>
+                        Contact Me
+
+                    </a>
+
+                </div>
+
+                <div class="col-lg-5 text-center mt-5 mt-lg-0">
+
+                    <img
+                        src="assets/img/WhatsApp Image 2026-10-19 at 3.03.13 PM.jpeg"
+                        alt="Heba Abdo Profile"
+                        class="profile-img rounded-circle">
+
+                    <div>
+                        <span class="profile-badge">
+                            <i class="bi bi-code-slash me-2"></i>
+                            Creative Developer
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="text-center reveal">
+
+                <h2 class="section-title">
+                    About <span>Me</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Get to know me better
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-7 reveal">
+
+                    <div class="custom-card">
+
+                        <div class="card-icon">
+                            <i class="bi bi-person-heart"></i>
+                        </div>
+
+                        <h4>Who Am I?</h4>
+
+                        <p>
+                            I am a passionate web developer who enjoys
+                            learning new technologies and creating
+                            useful digital experiences.
+                        </p>
+
+                        <p>
+                            My goal is to build clean, responsive,
+                            and easy-to-use websites that look great
+                            on different devices.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-5 reveal">
+
+                    <div class="custom-card">
+
+                        <div class="card-icon">
+                            <i class="bi bi-person-lines-fill"></i>
+                        </div>
+
+                        <h4>Personal Information</h4>
+
+                        <div class="info-row">
+                            <strong>Name:</strong> Heba Abdo
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Email:</strong>
+                            Heba Abdo@gmail.com
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Location:</strong> Egypt
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Role:</strong> Web Developer
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="text-center reveal">
+
+                <h2 class="section-title">
+                    My <span>Skills</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Technologies I use to build websites
+                </p>
+
+            </div>
+
+            <div class="row g-4 text-center">
+
+                <div class="col-6 col-lg-3 reveal">
+
+                    <div class="skill-card">
+
+                        <i class="bi bi-filetype-html"></i>
+
+                        <h5>HTML</h5>
+
+                        <p>Structure</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-6 col-lg-3 reveal">
+
+                    <div class="skill-card">
+
+                        <i class="bi bi-filetype-css"></i>
+
+                        <h5>CSS</h5>
+
+                        <p>Styling</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-6 col-lg-3 reveal">
+
+                    <div class="skill-card">
+
+                        <i class="bi bi-bootstrap"></i>
+
+                        <h5>Bootstrap</h5>
+
+                        <p>Responsive Design</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-6 col-lg-3 reveal">
+
+                    <div class="skill-card">
+
+                        <i class="bi bi-filetype-js"></i>
+
+                        <h5>JavaScript</h5>
+
+                        <p>Interactive Websites</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="text-center reveal">
+
+                <h2 class="section-title">
+                    My <span>Projects</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Some projects I have worked on
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-4 reveal">
+
+                    <div class="project-card">
+
+                        <div class="project-top">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+
+                        <div class="project-body">
+
+                            <span class="project-tag">
+                                Student Management
+                            </span>
+
+                            <h5>Student Management System</h5>
+
+                            <p>
+                                A simple system for managing student
+                                records and organizing information.
+                            </p>
+
+                            <a href="#contact"
+                                class="btn btn-outline-wine">
+                                View Project
+                                <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4 reveal">
+
+                    <div class="project-card">
+
+                        <div class="project-top">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+
+                        <div class="project-body">
+
+                            <span class="project-tag">
+                                Portfolio
+                            </span>
+
+                            <h5>Personal Website</h5>
+
+                            <p>
+                                A personal website to introduce skills,
+                                experience, and creative work.
+                            </p>
+
+                            <a href="#home"
+                                class="btn btn-outline-wine">
+                                View Project
+                                <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4 reveal">
+
+                    <div class="project-card">
+
+                        <div class="project-top">
+                            <i class="bi bi-bag-heart"></i>
+                        </div>
+
+                        <div class="project-body">
+
+                            <span class="project-tag">
+                                E-Commerce
+                            </span>
+
+                            <h5>Online Store</h5>
+
+                            <p>
+                                A simple online store design with
+                                product cards and a modern layout.
+                            </p>
+
+                            <a href="#contact"
+                                class="btn btn-outline-wine">
+                                View Project
+                                <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="text-center reveal">
+
+                <h2 class="section-title">
+                    Contact <span>Me</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Have a project in mind? Let's talk.
+                </p>
+
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-7 reveal">
+
+                    <div class="contact-box">
+
+                        <form id="contactForm">
+
+                            <label for="name" class="form-label">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                class="form-control mb-3"
+                                placeholder="Enter your name"
+                                required>
+
+                            <label for="email" class="form-label">
+                                Your Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                class="form-control mb-3"
+                                placeholder="name@example.com"
+                                required>
+
+                            <label for="message" class="form-label">
+                                Your Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                class="form-control mb-3"
+                                rows="4"
+                                placeholder="Write your message"
+                                required></textarea>
+
+                            <button
+                                type="submit"
+                                class="btn btn-wine btn-lg w-100">
+
+                                <i class="bi bi-send me-2"></i>
+                                Send Message
+
+                            </button>
+
+                            <p id="formNotice"
+                                class="mt-3 mb-0"
+                                role="status"
+                                aria-live="polite"></p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            <h5>
+                Heba <span>Abdo</span> Portfolio
+            </h5>
+
+            <p>
+                Building ideas into websites.
+            </p>
+
+            <div class="mb-3">
+
+                <a href="#home" class="social-link"
+                    aria-label="Home">
+                    <i class="bi bi-house"></i>
+                </a>
+
+                <a href="#about" class="social-link"
+                    aria-label="About">
+                    <i class="bi bi-person"></i>
+                </a>
+
+                <a href="#projects" class="social-link"
+                    aria-label="Projects">
+                    <i class="bi bi-code-slash"></i>
+                </a>
+
+                <a href="#contact" class="social-link"
+                    aria-label="Contact">
+                    <i class="bi bi-envelope"></i>
+                </a>
+
+            </div>
+
+            <p class="mb-0">
+                © 2026 Heba Abdo. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="js/bootstrap.bundle.js"></script>
+
+    <script>
+        // Reveal sections when scrolling
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window) {
+
+            const observer = new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+            revealElements.forEach(function (element) {
+                observer.observe(element);
+            });
+
+        } else {
+
+            revealElements.forEach(function (element) {
+                element.classList.add("show");
+            });
+
+        }
+
+        // Contact form demonstration
+
+        document.getElementById("contactForm").addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                document.getElementById("formNotice").textContent =
+                    "Thank you! The form is ready, but sending messages requires connecting an email service.";
+
+            }
+        );
+
+        // Close mobile menu after selecting a section
+
+        document.querySelectorAll(".navbar-nav .nav-link").forEach(
+            function (link) {
+
+                link.addEventListener("click", function () {
+
+                    const menu = document.getElementById("navbarMenu");
+
+                    if (menu.classList.contains("show")) {
+
+                        const bsCollapse =
+                            bootstrap.Collapse.getOrCreateInstance(menu);
+
+                        bsCollapse.hide();
+
+                    }
+
+                });
+
+            }
+        );
+    </script>
+
+</body>
+
+</html>
